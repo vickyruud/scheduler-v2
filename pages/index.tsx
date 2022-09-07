@@ -3,10 +3,14 @@ import styled from "styled-components";
 import Button from "../components/Button";
 
 const Home: NextPage = () => {
+  const onClick = () => {
+    console.log("You clicked me!!");
+  };
+
   return (
     <div>
       <Title>Welcome to Scheduler!</Title>
-      <Button buttonType="#10ac84" text="Click Me!" />
+      <Button buttonType="#10ac84" text="Click Me!" onClick={onClick} />
     </div>
   );
 };

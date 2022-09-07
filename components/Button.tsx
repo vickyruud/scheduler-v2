@@ -1,8 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = ({ text, buttonType }: { text: string; buttonType: string }) => {
-  return <StyledButton buttonType={buttonType}>{text}</StyledButton>;
+const Button = ({
+  text,
+  buttonType,
+  onClick,
+}: {
+  text: string;
+  buttonType: string;
+  onClick: any;
+}) => {
+  return (
+    <StyledButton onClick={onClick} buttonType={buttonType}>
+      {text}
+    </StyledButton>
+  );
 };
 
 export default Button;
@@ -21,7 +33,7 @@ const StyledButton = styled.button<{ buttonType: string }>`
   color: ${(props) => (props.buttonType ? props.buttonType : "#fff")};
   background-color: transparent;
   &:hover {
-    @include button-active;
+    cursor: pointer;
     color: white;
     background-color: ${(props) =>
       props.buttonType ? props.buttonType : "#fff"};
