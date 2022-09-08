@@ -2,7 +2,26 @@ import type { NextPage } from "next";
 import { useState } from "react";
 import styled from "styled-components";
 import Button from "../components/Button";
+import DayList from "../components/DayList";
 import DayListItem from "../components/DayListItem";
+
+const days = [
+  {
+    id: 1,
+    name: "Monday",
+    spots: 2,
+  },
+  {
+    id: 2,
+    name: "Tuesday",
+    spots: 5,
+  },
+  {
+    id: 3,
+    name: "Wednesday",
+    spots: 0,
+  },
+];
 
 const Home: NextPage = () => {
   const [day, setDay] = useState("Monday");
@@ -16,9 +35,8 @@ const Home: NextPage = () => {
     <>
       <MainContainer>
         <DayListContainer>
-          <DayListItem name={day} spots={spots} />
+          <DayList days={days} onClick={onClick} />
         </DayListContainer>
-        <Button buttonType="#10ac84" text="Click Me!" onClick={onClick} />
       </MainContainer>
     </>
   );
@@ -40,6 +58,6 @@ const MainContainer = styled.div`
 
 const DayListContainer = styled.div`
   height: 100vh;
-  width: 35%;
+  width: 30%;
   background-color: #222f3e;
 `;
